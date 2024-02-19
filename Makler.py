@@ -6,37 +6,46 @@ weitereRaum = True
 while(weitereRaum):
   einzelraum = 0
   gesamtRaum = 0
-  quatratisch = str(input("Ist der Raum Quadratisch Ja/Nein "))
+  quatratisch = str(input("Ist der Raum Rechteckig Ja/Nein "))
 
   if(quatratisch.lower() == "ja"):
     RaumName = input("Bitte geben Sie den Raumname an ")
+    try:
+      if(RaumName != raumGröße[RaumName]):
+        print("Diesen Raum gibt es schon")
+    except KeyError:
+        seiteA = float(input("Erste Wand in Metern bis zu 2 Nachkommerstellen "))
+        seiteB = float(input("Zweite Wand in Metern bis zu 2 Nachkommerstellen "))
+        einzelraum = seiteA * seiteB
+        raumGröße[RaumName] = einzelraum
+        gesamtFläche = gesamtFläche + einzelraum
+        print(raumGröße)
+        print(gesamtFläche)
 
-    seiteA = float(input("Erste Wand in Metern bis zu 2 Nachkommerstellen "))
-    seiteB = float(input("Zweite Wand in Metern bis zu 2 Nachkommerstellen "))
-    einzelraum = seiteA * seiteB
-    raumGröße[RaumName] = einzelraum
-    gesamtFläche = gesamtFläche + einzelraum
-    print(raumGröße)
-    print(gesamtFläche)
+
     
 
   else:
     quadrat = True
     RaumName = input("Bitte geben Sie den Raumname an ")
-    print("Teilen sie den Raum bitte in Quadrate auf und geben sie die Maße an")
+    print("Teilen sie den Raum bitte in Rechtecke auf und geben sie die Maße an")
 
-    while(quadrat == True):
-      seiteA = float(input("Erste Wand in Metern bis zu 2 Nachkommerstellen "))
-      seiteB = float(input("Zweite Wand in Metern bis zu 2 Nachkommerstellen "))
-      einzelraum = seiteA * seiteB
-      gesamtRaum = einzelraum + gesamtRaum
-      nocheinteil = input("Gibt es noch einen weiteren Teil des Raums? Ja/Nein ")
-      if(nocheinteil.lower() == "nein"):
-        quadrat = False
-        raumGröße[RaumName] = gesamtRaum
-        gesamtFläche = gesamtFläche + gesamtRaum
-        print(raumGröße)
-        print(gesamtFläche)
+    try:
+      if(RaumName != raumGröße[RaumName]):
+        print("Diesen Raum gibt es schon")
+    except KeyError:
+      while(quadrat == True):
+        seiteA = float(input("Erste Wand in Metern bis zu 2 Nachkommerstellen "))
+        seiteB = float(input("Zweite Wand in Metern bis zu 2 Nachkommerstellen "))
+        einzelraum = seiteA * seiteB
+        gesamtRaum = einzelraum + gesamtRaum
+        nocheinteil = input("Gibt es noch einen weiteren Teil des Raums? Ja/Nein ")
+        if(nocheinteil.lower() == "nein"):
+          quadrat = False
+          raumGröße[RaumName] = gesamtRaum
+          gesamtFläche = gesamtFläche + gesamtRaum
+          print(raumGröße)
+          print(gesamtFläche)
 
 
   
