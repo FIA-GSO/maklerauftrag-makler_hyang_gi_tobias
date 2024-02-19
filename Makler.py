@@ -23,8 +23,6 @@ while(weitereRaum):
         print(gesamtFläche)
 
 
-    
-
   else:
     quadrat = True
     RaumName = input("Bitte geben Sie den Raumname an ")
