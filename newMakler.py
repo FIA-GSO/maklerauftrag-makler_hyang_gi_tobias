@@ -10,12 +10,12 @@ def rechteck(rekEins, rekzwei):
   raumMaße = rekEins * rekzwei
   return raumMaße
    
-def multiquadrat(maßeArray):
-  gesamtFläsche = 0
+def multirechteck(maßeArray):
+  gesamtFläche = 0
   for element in maßeArray:
-    einzelquadrat = element[0] * element[1]
-    gesamtFläsche = gesamtFläsche + einzelquadrat
-  return gesamtFläsche
+    einzelrechteck = element[0] * element[1]
+    gesamtFläche = gesamtFläche + einzelrechteck
+  return gesamtFläche
 
 def dreieckig(AnKat, geKat):
   # Gilt nur für Rechtwinklig
@@ -66,7 +66,7 @@ while(weitereRaum):
         nocheinteil = str(input("Gibt es noch einen weiteren Teil des Raums? Y/N: "))
         if(nocheinteil.lower() != "ja"):
           nocheinTeil = False
-          raumGroeßen.append([RaumName, multiquadrat(maßeArray)])
+          raumGroeßen.append([RaumName, multirechteck(maßeArray)])
           print(raumGroeßen)
           
     # Dreieckiger Raum
@@ -83,11 +83,11 @@ while(weitereRaum):
     if(nocheinRaum.lower() == "n"):
       weitereRaum = False
       print(f"Die Raum maße sind {raumGroeßen}.")
-      gesamtfläsche = 0
+      gesamtFläche = 0
       for element in raumGroeßen:
-        gesamtfläsche = gesamtfläsche + element[1]
+        gesamtFläche = gesamtFläche + element[1]
         
-      print(f"Die Gesamt Fläsche ist {gesamtfläsche}m.")
+      print(f"Die Gesamtfläche ist {gesamtFläche}m.")
           
 
         
